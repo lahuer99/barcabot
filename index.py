@@ -22,19 +22,20 @@ for m in formation:
 	print(m)
 
 
-hforeach=(fieldn.size[1]-300)/len(formation)
+hforeach=(fieldn.size[1]-350)/len(formation)
 
 hnos=0
 for line in formation:
 	wforeach=(fieldn.size[0]-200)/len(line)
-	wnos=1
+	wnos=0
+	startpos=(wforeach)/2
 	for jersno in line:
 		border=Image.open("./images/turf/border.png")
 		d1=ImageDraw.Draw(border)
 		dfont=ImageFont.truetype("./fonts/Roboto-Black.ttf",250)
 		d1.text((160,110),str(jersno),font=dfont,fill=(255,255,255))
 		bordern=border.resize((450,450))
-		fieldn.paste(bordern,(int(450+(wnos*wforeach)/2),int(700+(hnos*hforeach))))
+		fieldn.paste(bordern,(int(startpos-105+(wnos*wforeach)),int(700+(hnos*hforeach))))
 		fieldn.save("how.jpg")
 		wnos+=1
 	hnos+=1
