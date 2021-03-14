@@ -32,8 +32,16 @@ for line in formation:
 	for jersno in line:
 		border=Image.open("./images/turf/border.png")
 		d1=ImageDraw.Draw(border)
+<<<<<<< HEAD
 		dfont=ImageFont.truetype("./fonts/Roboto-Black.ttf",250)
 		d1.text((160,110),str(jersno),font=dfont,fill=(255,255,255))
+=======
+		dfont=ImageFont.truetype("Roboto-Black.ttf",250)
+		if(jersno<10):
+			d1.text((160,110),str(jersno),font=dfont,fill=(255,255,255))
+		else:
+			d1.text((120,110),str(jersno),font=dfont,fill=(255,255,255))
+>>>>>>> jersno
 		bordern=border.resize((450,450))
 		fieldn.paste(bordern,(int(startpos-105+(wnos*wforeach)),int(700+(hnos*hforeach))))
 		fieldn.save("how.jpg")
