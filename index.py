@@ -9,7 +9,7 @@ fieldn=field
 
 
 #squad list making
-sq=open("squad.txt","r")
+sq=open("fullsquad.txt","r")
 barcasq={}
 for line in sq.readlines():
 	pl=list(line.split("="))
@@ -20,7 +20,7 @@ for line in sq.readlines():
 
 
 #get input jersey nos(playing XI) from file
-inp=open("input.txt","r")
+inp=open("playingxi.txt","r")
 formation=[]
 for line in inp.readlines():
 	txt=list(map(int,line.split()))
