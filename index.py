@@ -38,7 +38,7 @@ for line in formation:
 		else:
 			d1.text((100,110),str(jersno),font=dfont,fill=(255,255,255))
 		bordern=border.resize((450,450))
-		fieldn.paste(bordern,(int(startpos-105+(wnos*wforeach)),int(700+(hnos*hforeach))))
+		fieldn.paste(bordern,(int(startpos-105+(wnos*wforeach)),int(700+(hnos*hforeach))),bordern)
 		fieldn.save("how.jpg")
 		wnos+=1
 	hnos+=1
