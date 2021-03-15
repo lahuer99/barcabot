@@ -8,7 +8,18 @@ field=Image.open("./images/turf/field.jpg")
 fieldn=field
 
 
-#get input jersey nos from file
+#squad list making
+sq=open("squad.txt","r")
+barcasq={}
+for line in sq.readlines():
+	pl=list(line.split("="))
+	barcasq[pl[0]]=pl[1][:-1].upper()
+
+#print(barcasq)
+
+
+
+#get input jersey nos(playing XI) from file
 inp=open("input.txt","r")
 formation=[]
 for line in inp.readlines():
@@ -19,8 +30,7 @@ for line in inp.readlines():
 # print(sections)
 
 for m in formation:
-	print(m)
-
+	print(list(map(lambda x:barcasq[str(x)],m)))
 
 hforeach=(fieldn.size[1]-350)/len(formation)
 
@@ -39,6 +49,10 @@ for line in formation:
 			d1.text((100,110),str(jersno),font=dfont,fill=(255,255,255))
 		bordern=border.resize((450,450))
 		fieldn.paste(bordern,(int(startpos-105+(wnos*wforeach)),int(700+(hnos*hforeach))),bordern)
+		#add name below each circle(draw to fieldn;pos is known)
+		d2=ImageDraw.Draw(fieldn)
+		d2font=ImageFont.truetype("./fonts/Roboto-Black.ttf",160)
+		d2.text((int(startpos-135+(wnos*wforeach)),int(700+(hnos*hforeach))+460),barcasq[str(jersno)],font=d2font,fill=(255,255,255))
 		fieldn.save("how.jpg")
 		wnos+=1
 	hnos+=1
